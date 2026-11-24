@@ -85,7 +85,6 @@ footer{margin-top:28px;font-size:11.5px;color:var(--mut);text-align:center;line-
       <div class="row"><span class="lbl">Kato</span><input id="f-kato" type="text" value="https://wearekato.com" placeholder="https://…"></div>
       <div class="row"><span class="lbl">Kyoto Music</span><input id="f-kyotomusic" type="text" value="https://www.kyotomusic.com/home" placeholder="Kyoto Music URL"></div>
       <div class="row"><span class="lbl">SW17 Studios</span><input id="f-sw17" type="text" value="" placeholder="https://…"></div>
-      <div class="row"><span class="lbl">Blueprint</span><input id="f-blueprint" type="text" value="" placeholder="https://…"></div>
 
       <div class="sub">Socials</div>
       <div class="row"><span class="lbl">Instagram</span><input id="f-ig" type="text" value="https://www.instagram.com/kyoto_prods" placeholder="Instagram URL"></div>
@@ -167,7 +166,7 @@ function buildSig(hosted){
   const gapRow=(personal&&studio)?'<tr><td style="height:10px;line-height:10px;font-size:1px;">&nbsp;</td></tr>':'';
   let rows=personal+gapRow+studio;
   const sep=' <span style="color:'+PINK+';">&middot;</span> ';
-  const groups=[['SW19 Studios',val('f-sw19')],['Kato',val('f-kato')],['Kyoto Music',val('f-kyotomusic')],['SW17 Studios',val('f-sw17')],['Blueprint',val('f-blueprint')]].filter(g=>g[1]);
+  const groups=[['SW19 Studios',val('f-sw19')],['Kato',val('f-kato')],['Kyoto Music',val('f-kyotomusic')],['SW17 Studios',val('f-sw17')]].filter(g=>g[1]);
   let groupRow=groups.length?'<tr><td style="padding-top:9px;font-family:'+FF+';font-size:11.5px;line-height:1.5;color:'+TEXT+';">'+
     '<span style="color:'+PINK+';font-weight:bold;">Group</span>&nbsp;&nbsp;'+groups.map(g=>lnk(g[1],g[0])).join(sep)+'</td></tr>':'';
   const socs=[['Instagram',ig],['LinkedIn',li]].filter(s=>s[1]);
@@ -189,7 +188,7 @@ function buildSig(hosted){
 }
 function render(){document.getElementById('preview').innerHTML=buildSig(false);}
 function applyTheme(){document.getElementById('paper').style.background = state.theme==='dark'?'#000000':'#ffffff';render();}
-['f-name','f-title','f-mobile','f-mobile2','f-email','f-email2','f-web','f-addr','f-office','f-sw19','f-kato','f-kyotomusic','f-sw17','f-blueprint','f-ig','f-li','f-logo']
+['f-name','f-title','f-mobile','f-mobile2','f-email','f-email2','f-web','f-addr','f-office','f-sw19','f-kato','f-kyotomusic','f-sw17','f-ig','f-li','f-logo']
   .forEach(id=>document.getElementById(id).addEventListener('input',render));
 document.querySelectorAll('#theme button').forEach(btn=>btn.onclick=()=>{
   state.theme=btn.dataset.t;
